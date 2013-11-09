@@ -1,0 +1,27 @@
+{
+	"uuid": "011046be-c0c1-464d-af81-381b937447cd",
+	"shortName": "Authenticator",
+	"longName": "Authenticator",
+	"companyName": "Neal",
+	"versionCode": 2,
+	"versionLabel": "2.0.0",
+	"capabilities": [ "configurable" ],
+	"watchapp": {
+		"watchface": false
+	},
+	"appKeys": {
+		"timezone": 0,
+		"vib_warn": 1,
+		"vib_renew": 2
+	},
+	"resources": {
+		"media": [
+			{
+				"menuIcon": true,
+				"type": "png",
+				"name": "IMAGE_MENU_ICON",
+				"file": "images/twostep_icon.png"
+			}
+		]
+	}
+}
