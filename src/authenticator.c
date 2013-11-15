@@ -41,7 +41,7 @@ float stof(const char* s) {
 void set_timezone() {
 	if (persist_exists(KEY_TIMEZONE)) {
 		char tz[7];
-		persist_read_string(KEY_TIMEZONE, 7, tz);
+		persist_read_string(KEY_TIMEZONE, tz, sizeof(tz));
 		timezone = stof(tz);
 	}
 }
