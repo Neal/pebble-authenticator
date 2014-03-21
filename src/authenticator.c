@@ -86,7 +86,8 @@ uint32_t get_token() {
 	// TOTP is HOTP with a time based payload
 	// HOTP is HMAC with a truncation function to get a short decimal key
 	uint32_t unix_time = time(NULL);
-	unix_time -= 3600 * timezone;
+	int adjustment = 3600 * timezone;
+	unix_time = unix_time - adjustment;
 	unix_time /= 30;
 
 	sha1_time[4] = (unix_time >> 24) & 0xFF;
