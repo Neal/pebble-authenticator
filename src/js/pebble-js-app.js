@@ -2,12 +2,20 @@ Pebble.addEventListener('ready', function(e) {});
 
 Pebble.addEventListener('showConfiguration', function(e) {
 	var options = JSON.parse(window.localStorage.getItem('options'));
-	console.log('read options: ' + JSON.stringify(options));
-	console.log('showing configuration');
-	var uri = 'https://rawgithub.com/Neal/pebble-authenticator/master/html/configuration.html?' +
-				'timezone=' + encodeURIComponent(options['timezone']) +
-				'&vib_warn=' + encodeURIComponent(options['vib_warn']) +
-				'&vib_renew=' + encodeURIComponent(options['vib_renew']);
+
+	if (options === null) {
+		console.log('options have not been set');
+		console.log('showing configuration');
+		var uri = 'https://rawgithub.com/Neal/pebble-authenticator/master/html/configuration.html';
+	} else {
+		console.log('read options: ' + JSON.stringify(options));
+		console.log('showing configuration');
+		var uri = 'https://rawgithub.com/Neal/pebble-authenticator/master/html/configuration.html?' +
+					'timezone=' + encodeURIComponent(options['timezone']) +
+					'&vib_warn=' + encodeURIComponent(options['vib_warn']) +
+					'&vib_renew=' + encodeURIComponent(options['vib_renew']);
+	}
+
 	Pebble.openURL(uri);
 });
 
