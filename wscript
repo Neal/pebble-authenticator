@@ -5,6 +5,8 @@
 # Feel free to customize this to your needs.
 #
 
+import configuration
+
 top = '.'
 out = 'build'
 
@@ -13,6 +15,8 @@ def options(ctx):
 
 def configure(ctx):
 	ctx.load('pebble_sdk')
+
+	configuration.generate()
 
 def build(ctx):
 	ctx.load('pebble_sdk')
