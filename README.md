@@ -20,7 +20,6 @@ More info on how to set that up found [here](https://developer.getpebble.com/2/g
 ## Configuration
 
 * Copy `configuration-sample.txt` to `configuration.txt` and add your secrets.
-* Run `./configuration.py`
 
 ## Install
 
