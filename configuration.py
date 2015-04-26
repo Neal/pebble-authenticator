@@ -10,12 +10,9 @@ time_zone = "0.0"
 
 def genKeyLine(code):
 	secret_key = code.replace(' ','').upper()
-	if len(secret_key) <= 32:
-		key_b32 = secret_key+'='*(32%len(secret_key))
-		key = base64.b32decode(key_b32)
-	else:
-		key_b64 = secret_key+'='*(64%len(secret_key))
-		key = base64.b32decode(key_b64)
+        pad = 0 if (len(secret_key) % 8) == 0 else 8 - (len(secret_key) % 8)
+        key_enc = secret_key + ('='*pad)
+        key = base64.b32decode(key_enc)
 	key_bytes = map(ord,key)
 	lengths.append(len(key_bytes))
 	key_hex = ["0x%02X" % x for x in key_bytes]
